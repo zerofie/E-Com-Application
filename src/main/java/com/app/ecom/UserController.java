@@ -40,11 +40,11 @@ public class UserController {
 //        User user = userService.fetchUser(id);
 //
 //        if(user == null){
-////            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //            return ResponseEntity.notFound().build();
 //
 //        }return ResponseEntity.ok(user);
-////        return ResponseEntity.ok(userService.fetchUser(id));
+//        return ResponseEntity.ok(userService.fetchUser(id));
     }
     @PostMapping("/api/users")
     public ResponseEntity<String> createUser(@RequestBody User user){
