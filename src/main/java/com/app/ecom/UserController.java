@@ -1,4 +1,5 @@
 package com.app.ecom;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,9 +9,13 @@ import org.springframework.web.client.RestClient;
 import java.util.ArrayList;
 import java.util.List;
 @RestController
+//@RequiredArgsConstructor
+//@RequestMapping("/api/users");
 public class UserController {
 
-//    else add a constructor or a lombok based annotation RequredArgsConstructor and use a final as it will only pass it to the constructor
+//    else add a constructor or a lombok based annotation
+//    RequredArgsConstructor and use a final as it will only pass it to the constructor
+//    private final UserService userService
 
     @Autowired
     private UserService userService;
