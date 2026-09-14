@@ -14,9 +14,9 @@ public class ProductService {
     private final ProductRepository productRepository;
 
     public ProductResponse createProduct(ProductRequest productRequest) {
-        Product product=new Product();
-        updateProductFromRequest(product,productRequest);
-        Product savedProduct=productRepository.save(product);
+        Product product = new Product();
+        updateProductFromRequest(product, productRequest);
+        Product savedProduct = productRepository.save(product);
         return mapToProductResponse(savedProduct);
     }
 
@@ -33,7 +33,7 @@ public class ProductService {
     }
 
     private ProductResponse mapToProductResponse(Product savedProduct) {
-        ProductResponse response=new ProductResponse();
+        ProductResponse response = new ProductResponse();
         response.setId(savedProduct.getId());
         response.setName(savedProduct.getName());
         response.setActive(savedProduct.getActive());
@@ -43,5 +43,14 @@ public class ProductService {
         response.setImageUrl(savedProduct.getImageUrl());
         response.setStockQuantity(savedProduct.getStockQuantity());
         return response;
+    }
+
+    public ProductResponse updateProduct(Long id, ProductRequest productRequest) {
+        return productRepository.findById(id)
+                .map(existingProduct -> {
+                    updateProductFromRequest(existingProduct, productRequest);
+                   Product savedProduct= productRepository.save(existingProduct);
+                    return mapToProductResponse(savedProduct);
+                }).orElseThrow(()->new RuntimeException("Product not found: "+id));
     }
 }
