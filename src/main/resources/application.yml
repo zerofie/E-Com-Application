@@ -2,6 +2,8 @@
 #
 #spring.h2.console.enabled=true
 #spring.datasource.url=jdbc:h2:mem:test
+#spring.jpa.show-sql=true
+#spring.jpa.hibernate.ddl-auto=create
 spring:
   application:
     name: ecom-application
@@ -10,3 +12,7 @@ spring:
       enabled: true
   datasource:
     url: jdbc:h2:mem:test
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create
